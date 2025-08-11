@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>That Other Agency – London</title>
+  <meta name="description" content="We design brands & build websites that actually convert. Strategy-first creative for founders in London." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: dark; }
+    html,body { height: 100%; }
+    body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    /* marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee { white-space: nowrap; animation: marquee 30s linear infinite; will-change: transform; }
+    /* custom cursor */
+    .cursor { position: fixed; left: 0; top: 0; width: 32px; height: 32px; border-radius: 999px; pointer-events: none; transform: translate(-50%,-50%); backdrop-filter: blur(6px); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); z-index: 60; }
+    /* magnetic button helper */
+    .magnet { position: relative; display: inline-block; }
+    .magnet > .magnet-inner { transition: transform .15s ease-out; will-change: transform; }
+  </style>
+</head>
+<body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased selection:bg-fuchsia-500/30">
+  <!-- custom cursor -->
+  <div id="cursor" class="cursor"></div>
+
+  <!-- soft page glows -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+    <div class="absolute -top-40 -left-40 h-[40rem] w-[40rem] rounded-full bg-gradient-to-br from-fuchsia-500/20 via-purple-500/20 to-sky-500/20 blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-20 h-[30rem] w-[30rem] rounded-full bg-gradient-to-tr from-emerald-400/20 via-cyan-400/20 to-indigo-400/20 blur-3xl"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-40 border-b border-white/10 backdrop-blur supports-[backdrop-filter]:bg-zinc-950/60">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+      <div class="flex items-center gap-3">
+        <div class="h-7 w-7 rounded-xl bg-gradient-to-br from-fuchsia-500 to-indigo-500"></div>
+        <span class="text-sm font-semibold tracking-wide">THAT OTHER AGENCY</span>
+      </div>
+      <nav class="hidden items-center gap-6 md:flex">
+        <a class="text-sm text-zinc-300 hover:text-white transition" href="#work">Work</a>
+        <a class="text-sm text-zinc-300 hover:text-white transition" href="#services">Services</a>
+        <a class="text-sm text-zinc-300 hover:text-white transition" href="#about">About</a>
+        <a class="text-sm text-zinc-300 hover:text-white transition" href="#contact">Contact</a>
+      </nav>
+      <div class="magnet">
+        <a href="#contact" class="magnet-inner rounded-2xl bg-white text-zinc-900 px-4 py-2 text-sm font-medium hover:bg-zinc-200">Let's talk →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-20 md:py-24 md:grid-cols-2">
+      <div>
+        <span class="mb-6 inline-flex items-center rounded-full bg-zinc-800/80 px-3 py-1 text-xs text-zinc-200">London • Brand, Web, Growth</span>
+        <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+          We design brands & build websites that actually <span class="bg-gradient-to-r from-fuchsia-400 to-sky-400 bg-clip-text text-transparent">convert</span>.
+        </h1>
+        <p class="mt-5 max-w-xl text-zinc-300">Strategy-first creative for founders who care about outcomes. From naming to CRO, we ship the lot—tailored to your runway.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <div class="magnet">
+            <a href="#contact" class="magnet-inner inline-flex items-center rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold hover:opacity-90">Start a project →</a>
+          </div>
+          <a href="#work" class="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm hover:bg-white/10">See our work</a>
+        </div>
+        <div class="mt-10 text-xs text-zinc-400">Trusted by scrappy start-ups & scaling brands—D2C, SaaS, and a few delightful misfits.</div>
+      </div>
+      <div class="relative">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(168,85,247,.15),transparent_40%),radial-gradient(ellipse_at_bottom_left,rgba(56,189,248,.12),transparent_40%)]"></div>
+        <div class="relative group aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-800/40 to-zinc-900/40 p-2 shadow-2xl">
+          <div class="h-full w-full rounded-2xl bg-[conic-gradient(from_180deg_at_50%_50%,#111_0deg,#1e1e1e_90deg,#111_180deg,#1e1e1e_270deg,#111_360deg)]"></div>
+          <div class="pointer-events-none absolute inset-0 grid place-items-center">
+            <div class="flex items-center gap-3 rounded-full bg-white/10 px-5 py-3 backdrop-blur"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg><p class="text-sm">Lightning-fast sites. Outrageous polish.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative w-full overflow-hidden border-y border-white/10 bg-white/5">
+      <div class="marquee py-3 text-zinc-300/90">
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Brand strategy</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Naming</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Identity systems</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Design systems</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Web design</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Next.js builds</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Shopify</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ CRO</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Paid social</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ SEO</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Motion & 3D</span>
+        <!-- duplicate for smooth loop -->
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Brand strategy</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Naming</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Identity systems</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Design systems</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Web design</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Next.js builds</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Shopify</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ CRO</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Paid social</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ SEO</span>
+        <span class="mx-6 inline-flex items-center gap-2 text-sm">✦ Motion & 3D</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="mx-auto max-w-7xl px-4 py-16">
+    <div class="mb-8 flex items-end justify-between">
+      <h2 class="text-3xl font-semibold">Selected work</h2>
+      <a href="#" class="text-sm text-zinc-300 hover:text-white">View all</a>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <!-- six demo cards -->
+      <template id="project-card-template">
+        <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+          <div class="aspect-[4/3] bg-gradient-to-br from-zinc-700/30 to-zinc-900/30"></div>
+          <div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div class="absolute inset-x-0 bottom-0 p-4">
+              <div class="rounded-xl bg-zinc-900/80 p-3 backdrop-blur">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-medium">Project</p>
+                  <span>→</span>
+                </div>
+                <p class="mt-1 text-xs text-zinc-400">E‑commerce redesign, +38% conversion in 60 days.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <section id="services" class="mx-auto max-w-7xl px-4 pb-16">
+    <h2 class="mb-8 text-3xl font-semibold">What we do</h2>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="mb-3 inline-flex rounded-xl bg-gradient-to-br from-fuchsia-500/30 to-sky-500/30 p-2">▣</div>
+        <h3 class="text-lg font-semibold">Brand & Identity</h3>
+        <p class="mt-2 text-sm text-zinc-300">Names, narratives, and visual systems that land with your audience.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="mb-3 inline-flex rounded-xl bg-gradient-to-br from-fuchsia-500/30 to-sky-500/30 p-2">⚡</div>
+        <h3 class="text-lg font-semibold">Web & Product</h3>
+        <p class="mt-2 text-sm text-zinc-300">High‑performance sites and design systems in vanilla, Next.js and Shopify.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <div class="mb-3 inline-flex rounded-xl bg-gradient-to-br from-fuchsia-500/30 to-sky-500/30 p-2">✉︎</div>
+        <h3 class="text-lg font-semibold">Growth & CRO</h3>
+        <p class="mt-2 text-sm text-zinc-300">Landing pages, analytics and experiments that turn visitors into customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="mx-auto max-w-7xl px-4 pb-16">
+    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-3xl font-semibold">A tiny team, unfairly fast</h2>
+        <p class="mt-4 text-zinc-300">We’re a senior duo in London shipping brand, web, and growth for ambitious founders. No fluff, no layers. Direct access, fast iterations, delightful details.</p>
+        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-zinc-300">
+          <li class="flex items-center gap-2">∞ Unlimited feedback windows</li>
+          <li class="flex items-center gap-2">↺ 1–2 week sprints</li>
+          <li class="flex items-center gap-2">🚀 Performance‑first builds</li>
+          <li class="flex items-center gap-2">✨ Tidy handover & docs</li>
+        </ul>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-fuchsia-500/30 to-sky-500/30 blur-xl"></div>
+        <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 p-6">
+          <p class="text-sm text-zinc-300">“They shipped a new brand and Shopify in 4 weeks. Traffic up, AOV up, conversion up. It shouldn’t be this easy.”</p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="h-8 w-8 rounded-full bg-gradient-to-br from-fuchsia-500 to-sky-500"></div>
+            <div class="text-xs"><div class="font-medium">Happy founder</div><div class="text-zinc-400">Direct‑to‑consumer, UK</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="mx-auto max-w-3xl px-4 pb-24">
+    <div class="mb-8 text-center">
+      <h2 class="text-3xl font-semibold">Tell us what you need</h2>
+      <p class="mt-2 text-zinc-300">We’ll reply within a day with next steps and ballpark pricing.</p>
+    </div>
+    <form class="grid gap-4" onsubmit="event.preventDefault(); const s=document.getElementById('sent'); s.classList.remove('hidden'); s.scrollIntoView({behavior:'smooth'});">
+      <div class="grid gap-2 md:grid-cols-2">
+        <input class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Name" required>
+        <input class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Email" type="email" required>
+      </div>
+      <textarea class="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Project, timeline, budget…" required></textarea>
+      <div class="flex items-center justify-between">
+        <p class="text-xs text-zinc-400">Prefer email? <a class="underline hover:text-white" href="mailto:hello@thatotheragency.co.uk">hello@thatotheragency.co.uk</a></p>
+        <div class="magnet"><button class="magnet-inner rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200">Send enquiry →</button></div>
+      </div>
+      <p id="sent" class="hidden text-sm text-emerald-400">Cheers — we’ll be in touch shortly.</p>
+    </form>
+  </section>
+
+  <footer class="border-t border-white/10 bg-zinc-950/60 py-10 text-sm">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 md:flex-row">
+      <p class="text-zinc-400">© <span id="year"></span> That Other Agency • London</p>
+      <div class="flex items-center gap-4 text-zinc-400">
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // duplicate 6 project cards dynamically
+    const holder = document.querySelector('#work .grid');
+    const tpl = document.getElementById('project-card-template');
+    for (let i=0; i<6; i++) holder.appendChild(tpl.content.cloneNode(true));
+
+    // custom cursor
+    const c = document.getElementById('cursor');
+    window.addEventListener('mousemove', (e)=>{
+      c.style.left = e.clientX + 'px';
+      c.style.top  = e.clientY + 'px';
+    });
+    window.addEventListener('click', ()=>{
+      c.animate([{ transform: 'translate(-50%,-50%) scale(1)' },{ transform: 'translate(-50%,-50%) scale(0.7)' },{ transform: 'translate(-50%,-50%) scale(1)' }], { duration: 200 });
+    });
+
+    // magnetic buttons (subtle)
+    const magnets = document.querySelectorAll('.magnet');
+    magnets.forEach(m => {
+      const inner = m.querySelector('.magnet-inner');
+      m.addEventListener('mousemove', (e)=>{
+        const r = m.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 14; // px
+        const y = ((e.clientY - r.top) / r.height - 0.5) * 14;
+        inner.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      m.addEventListener('mouseleave', ()=> inner.style.transform = 'translate(0,0)');
+    });
+  </script>
+</body>
+</html>
