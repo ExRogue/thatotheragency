@@ -20,6 +20,7 @@
     /* magnetic button helper */
     .magnet { position: relative; display: inline-block; }
     .magnet > .magnet-inner { transition: transform .15s ease-out; will-change: transform; }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased selection:bg-fuchsia-500/30">
@@ -40,7 +41,8 @@
         <span class="text-sm font-semibold tracking-wide">THAT OTHER AGENCY</span>
       </div>
       <nav class="hidden items-center gap-6 md:flex">
-        <a class="text-sm text-zinc-300 hover:text-white transition" href="#work">Work</a>
+        <!-- Updated nav: replace Work with How we work linking to new section -->
+        <a class="text-sm text-zinc-300 hover:text-white transition" href="#how-we-work">How we work</a>
         <a class="text-sm text-zinc-300 hover:text-white transition" href="#services">Services</a>
         <a class="text-sm text-zinc-300 hover:text-white transition" href="#about">About</a>
         <a class="text-sm text-zinc-300 hover:text-white transition" href="#contact">Contact</a>
@@ -57,14 +59,16 @@
       <div>
         <span class="mb-6 inline-flex items-center rounded-full bg-zinc-800/80 px-3 py-1 text-xs text-zinc-200">London • Brand, Web, Growth</span>
         <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
-          Brands that <span class="bg-gradient-to-r from-fuchsia-400 to-sky-400 bg-clip-text text-transparent">last.</span> Sales that <span class="bg-gradient-to-r from-fuchsia-400 to-sky-400 bg-clip-text text-transparent">scale.</span>
+          Identity that <span class="bg-gradient-to-r from-fuchsia-400 to-sky-400 bg-clip-text text-transparent">inspires.</span>  Strategy that <span class="bg-gradient-to-r from-fuchsia-400 to-sky-400 bg-clip-text text-transparent">converts.</span>
         </h1>
-        <p class="mt-5 max-w-xl text-zinc-300">We blend the magic of brand-building with the science of sales, helping create identities that inspire and strategies that convert.</p>
+        <p class="mt-5 max-w-xl text-zinc-300">We turn brand vision into customer trust - and smart strategy into scalable growth.
+</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <div class="magnet">
-            <a href="#contact" class="magnet-inner inline-flex items-center rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold hover:opacity-90">Start a project →</a>
+            <!-- Updated: button scrolls to How we work section -->
+            <a href="#how-we-work" class="magnet-inner inline-flex items-center rounded-2xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-5 py-3 text-sm font-semibold hover:opacity-90">How we do it →</a>
           </div>
-          <a href="#work" class="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm hover:bg-white/10">See our work</a>
+          <a href="#contact" class="inline-flex items-center rounded-2xl border border-white/20 bg-white/5 px-5 py-3 text-sm hover:bg-white/10">Book a Consult</a>
         </div>
         <div class="mt-10 text-xs text-zinc-400">Trusted by scrappy start-ups & scaling brands—D2C, SaaS, and a few delightful misfits.</div>
       </div>
@@ -104,30 +108,30 @@
     </div>
   </section>
 
-  <!-- Work -->
-  <section id="work" class="mx-auto max-w-7xl px-4 py-16">
-    <div class="mb-8 flex items-end justify-between">
-      <h2 class="text-3xl font-semibold">Selected work</h2>
-      <a href="#" class="text-sm text-zinc-300 hover:text-white">View all</a>
-    </div>
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-      <!-- six demo cards -->
-      <template id="project-card-template">
-        <div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
-          <div class="aspect-[4/3] bg-gradient-to-br from-zinc-700/30 to-zinc-900/30"></div>
-          <div class="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <div class="absolute inset-x-0 bottom-0 p-4">
-              <div class="rounded-xl bg-zinc-900/80 p-3 backdrop-blur">
-                <div class="flex items-center justify-between">
-                  <p class="text-sm font-medium">Project</p>
-                  <span>→</span>
-                </div>
-                <p class="mt-1 text-xs text-zinc-400">E‑commerce redesign, +38% conversion in 60 days.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </template>
+  <!-- How we work (replaces Selected work) -->
+  <section id="how-we-work" class="mx-auto max-w-7xl px-4 py-16">
+    <h2 class="mb-6 text-3xl font-semibold">How we work</h2>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="space-y-4">
+        <p class="text-zinc-300">Our team brings deep specialisms in SaaS, enterprise software, digital marketing, and ecommerce. When you work with us, you’re paired with a subject matter expert who knows your world inside out.</p>
+        <p class="text-zinc-300">We take a consultative approach:</p>
+        <ul class="grid gap-3">
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4"><span class="font-medium">Understand</span> where you are now.</li>
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4"><span class="font-medium">Define</span> where you want to be.</li>
+          <li class="rounded-2xl border border-white/10 bg-white/5 p-4"><span class="font-medium">Map</span> the strategy that gets you there.</li>
+        </ul>
+        <p class="text-zinc-300">No cookie-cutter playbooks. Just sharp, tailored strategies built for growth.</p>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div class="mb-3 inline-flex rounded-xl bg-gradient-to-br from-fuchsia-500/30 to-sky-500/30 p-2">⚙️</div>
+        <h3 class="text-lg font-semibold">What you can expect</h3>
+        <ul class="mt-3 grid gap-2 text-sm text-zinc-300">
+          <li>Dedicated subject matter expert</li>
+          <li>Clear milestones and growth metrics</li>
+          <li>Fast feedback loops and iteration</li>
+          <li>Transparent pricing and comms</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -216,11 +220,6 @@
   <script>
     // year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // duplicate 6 project cards dynamically
-    const holder = document.querySelector('#work .grid');
-    const tpl = document.getElementById('project-card-template');
-    for (let i=0; i<6; i++) holder.appendChild(tpl.content.cloneNode(true));
 
     // custom cursor
     const c = document.getElementById('cursor');
