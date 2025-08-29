@@ -182,18 +182,24 @@
       <h2 class="text-3xl font-semibold">Tell us what you need</h2>
       <p class="mt-2 text-zinc-300">We’ll reply within a day with next steps and ballpark pricing.</p>
     </div>
-    <form class="grid gap-4" onsubmit="event.preventDefault(); const s=document.getElementById('sent'); s.classList.remove('hidden'); s.scrollIntoView({behavior:'smooth'});">
+
+    <!-- Web3Forms: JS submit (stays on page) -->
+    <form id="contact-form" class="grid gap-4">
       <div class="grid gap-2 md:grid-cols-2">
-        <input class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Name" required>
-        <input class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Email" type="email" required>
+        <input id="name" name="name" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Name" required>
+        <input id="email" name="email" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Email" type="email" required>
       </div>
-      <textarea class="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Project, timeline, budget…" required></textarea>
+      <textarea id="message" name="message" class="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Project, timeline, budget…" required></textarea>
+
+      <!-- honeypot -->
+      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
       <div class="flex items-center justify-between">
-        <p class="text-xs text-zinc-400">Prefer email? <a class="underline hover:text-white" href="mailto:hello.that.other.agency@gmail.com">hello.that.other.agency@gmail.com
-</a></p>
-        <div class="magnet"><button class="magnet-inner rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200">Send enquiry →</button></div>
+        <p class="text-xs text-zinc-400">Prefer email? <a class="underline hover:text-white" href="mailto:hello.that.other.agency@gmail.com">hello.that.other.agency@gmail.com</a></p>
+        <div class="magnet"><button id="submit-btn" class="magnet-inner rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-200">Send enquiry →</button></div>
       </div>
       <p id="sent" class="hidden text-sm text-emerald-400">Cheers — we’ll be in touch shortly.</p>
+      <p id="error" class="hidden text-sm text-rose-400">Hmm, something broke. Try again or email us.</p>
     </form>
   </section>
 
@@ -237,6 +243,48 @@
         inner.style.transform = `translate(${x}px, ${y}px)`;
       });
       m.addEventListener('mouseleave', ()=> inner.style.transform = 'translate(0,0)');
+    });
+
+    // Web3Forms submit via fetch (stays on page)
+    const ACCESS_KEY = '01cb4d8d-9cef-45ff-b572-254a99ec6400';
+
+    const form = document.getElementById('contact-form');
+    const sent = document.getElementById('sent');
+    const err  = document.getElementById('error');
+    const btn  = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      err.classList.add('hidden');
+      sent.classList.add('hidden');
+
+      const data = new FormData(form);
+      // required + niceties
+      data.append('access_key', ACCESS_KEY);
+      data.append('from_name', 'That Other Agency — Website');
+      data.append('subject', `New enquiry from ${form.name.value || 'Website'}`);
+
+      try {
+        btn.disabled = true;
+        btn.classList.add('opacity-70');
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: data
+        });
+        const json = await res.json();
+        if (json.success) {
+          form.reset();
+          sent.classList.remove('hidden');
+          sent.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          err.classList.remove('hidden');
+        }
+      } catch (e) {
+        err.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btn.classList.remove('opacity-70');
+      }
     });
   </script>
 </body>
