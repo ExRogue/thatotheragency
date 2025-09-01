@@ -220,15 +220,77 @@
       <p class="mt-2 text-zinc-300">We’ll reply within a day with next steps and ballpark pricing.</p>
     </div>
 
-    <!-- Web3Forms: JS submit (stays on page) -->
-    <form id="contact-form" class="grid gap-4">
-      <div class="grid gap-2 md:grid-cols-2">
-        <input id="name" name="name" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Name" required>
-        <input id="email" name="email" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Email" type="email" required>
-      </div>
-      <textarea id="message" name="message" class="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Project, timeline, budget…" required></textarea>
+<section id="contact" class="mx-auto max-w-3xl px-4 pb-24">
+  <div class="mb-8 text-center">
+    <h2 class="text-3xl font-semibold">Tell us what you need</h2>
+    <p class="mt-2 text-zinc-300">We’ll reply within a day with next steps and ballpark pricing.</p>
+  </div>
 
-      <!-- honeypot -->
-      <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+  <!-- Web3Forms: JS submit (stays on page) -->
+  <form id="contact-form" class="grid gap-4">
+    <!-- required by Web3Forms -->
+    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+    <input type="hidden" name="subject" value="New enquiry — That Other Agency" />
 
-      <div class="flex items-center justify-between">
+    <div class="grid gap-2 md:grid-cols-2">
+      <input id="name" name="name" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Name" required>
+      <input id="email" name="email" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Email" type="email" required>
+    </div>
+
+    <textarea id="message" name="message" class="min-h-[140px] rounded-2xl border border-white/10 bg-white/5 px-4 py-3" placeholder="Project, timeline, budget…" required></textarea>
+
+    <!-- honeypot -->
+    <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+    <div class="flex items-center justify-between">
+      <p class="text-xs text-zinc-400">
+        Prefer email?
+        <a class="underline hover:text-white" href="mailto:hello.that.other.agency@gmail.com">hello.that.other.agency@gmail.com</a>
+      </p>
+
+      <!-- ✅ The missing submit button -->
+      <button type="submit" class="rounded-2xl bg-white text-zinc-900 px-5 py-3 text-sm font-semibold hover:bg-zinc-200">
+        Send message →
+      </button>
+    </div>
+
+    <!-- status message -->
+    <p id="form-status" class="hidden text-sm text-zinc-300"></p>
+  </form>
+</section>
+
+<script>
+  // Minimal JS submit to Web3Forms
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const fd = new FormData(form);
+    if (fd.get('botcheck')) return; // honeypot
+
+    status.classList.remove('hidden');
+    status.textContent = 'Sending…';
+
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+      const data = await r.json();
+
+      if (data.success) {
+        status.textContent = 'Thanks — we’ll be in touch shortly.';
+        form.reset();
+        // Optional GA4 conversion
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { event_category: 'form', event_label: 'Contact form' });
+        }
+      } else {
+        status.textContent = 'Something went wrong. Please email us instead.';
+      }
+    } catch {
+      status.textContent = 'Network error. Please email us.';
+    }
+
+    setTimeout(() => status.classList.add('hidden'), 6000);
+  });
+</script>
