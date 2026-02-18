@@ -2,6 +2,36 @@
   const root = document.documentElement;
   root.classList.add("js");
 
+  const scribbles = [...document.querySelectorAll("[data-scribble]")];
+  scribbles.forEach((target) => {
+    if (target.querySelector("svg")) return;
+
+    const type = target.getAttribute("data-scribble");
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    const path = document.createElementNS(svgNS, "path");
+    svg.classList.add("ink-svg");
+    path.classList.add("ink-path");
+
+    if (type === "underline") {
+      svg.setAttribute("viewBox", "0 0 120 24");
+      path.setAttribute("d", "M4 16 C24 12, 50 18, 76 14 C92 12, 106 13, 116 14");
+    } else {
+      svg.setAttribute("viewBox", "0 0 140 60");
+      path.setAttribute("d", "M8 33 C12 12, 52 6, 102 10 C126 12, 136 20, 132 34 C126 50, 88 56, 40 52 C18 50, 8 42, 8 33");
+    }
+
+    svg.appendChild(path);
+    target.appendChild(svg);
+    const length = path.getTotalLength();
+    path.style.strokeDasharray = String(length);
+    path.style.strokeDashoffset = String(length);
+  });
+
+  requestAnimationFrame(() => {
+    root.classList.add("page-ready");
+  });
+
   document.querySelectorAll("#year,[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
