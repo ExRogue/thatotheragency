@@ -1,0 +1,21 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="120" y1="120" x2="1480" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB27A"/>
+      <stop offset="0.5" stop-color="#F15A24"/>
+      <stop offset="1" stop-color="#D93D2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="#FFF7F0"/>
+  <circle cx="1300" cy="130" r="240" fill="url(#g1)" opacity="0.24"/>
+  <circle cx="220" cy="760" r="280" fill="#FF8A45" opacity="0.2"/>
+  <rect x="120" y="146" width="1360" height="608" rx="28" fill="#FFFFFF" stroke="#F2D7C6" stroke-width="4"/>
+  <path d="M250 630L510 500L740 560L970 410L1270 300" stroke="#E4472D" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="250" cy="630" r="14" fill="#D93D2F"/>
+  <circle cx="510" cy="500" r="14" fill="#D93D2F"/>
+  <circle cx="740" cy="560" r="14" fill="#D93D2F"/>
+  <circle cx="970" cy="410" r="14" fill="#D93D2F"/>
+  <circle cx="1270" cy="300" r="14" fill="#D93D2F"/>
+  <text x="180" y="238" fill="#6B3121" font-family="Sora, Arial" font-size="52" font-weight="700">Lower Lead Costs</text>
+  <text x="180" y="300" fill="#8E5C43" font-family="Sora, Arial" font-size="34">London Service Growth</text>
+</svg>

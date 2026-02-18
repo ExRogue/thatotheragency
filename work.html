@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work | That Other Agency</title>
     <meta
       name="description"
-      content="Client work examples from That Other Agency across growth strategy, paid media, and conversion optimization."
+      content="Selected client work from That Other Agency including Made Of More, Thirak, and Ventete across strategy, paid media, and funnel optimisation."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,58 +18,63 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="That Other Agency home">
         <img src="assets/logo.svg" alt="That Other Agency logo" />
         <span>That Other Agency</span>
       </a>
-      <nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
         <a href="services.html">Services</a>
         <a class="current" href="work.html">Work</a>
         <a href="about.html">About</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a class="btn btn-ghost" href="contact.html">Book a Strategy Call</a>
+      <a class="btn btn-ghost header-cta" href="contact.html">Book a Strategy Call</a>
     </header>
 
     <main>
       <section class="page-hero reveal">
-        <p class="eyebrow">Client Work</p>
-        <h1>Projects delivered with a clear commercial lens</h1>
+        <p class="eyebrow">Work</p>
+        <h1>Selected delivery snapshots from current client relationships</h1>
         <p class="lead">
-          A snapshot of growth-focused delivery across strategy, media,
-          conversion, and performance creative.
+          We focus on practical outcomes: sharper positioning, cleaner paid media
+          structure, and more reliable conversion pathways.
         </p>
       </section>
 
       <section class="reveal">
         <div class="grid-3">
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Made Of More</p>
-            <h3>Performance messaging and paid channel optimization</h3>
+            <h3>Performance messaging and paid channel refinement</h3>
             <ul>
-              <li>Offer and positioning refinement</li>
-              <li>Campaign architecture cleanup</li>
-              <li>Landing flow improvement priorities</li>
+              <li>Offer and message clarity review</li>
+              <li>Campaign structure and spend controls</li>
+              <li>Landing-flow improvements for lead quality</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Thirak</p>
-            <h3>Growth strategy and execution support</h3>
+            <h3>Strategy-led planning and execution programme</h3>
             <ul>
-              <li>Channel planning and KPI framework</li>
-              <li>Creative testing workflow design</li>
-              <li>Reporting cadence for faster decisions</li>
+              <li>Channel and objective prioritisation</li>
+              <li>Creative testing rhythm and brief structure</li>
+              <li>Weekly reporting and decision framework</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Ventete</p>
-            <h3>Demand generation and conversion refinement</h3>
+            <h3>Demand generation and funnel optimisation support</h3>
             <ul>
-              <li>Audience and offer alignment</li>
-              <li>Funnel friction diagnosis</li>
-              <li>Experiment roadmap across touchpoints</li>
+              <li>Audience/offer alignment by channel</li>
+              <li>Key page and journey friction diagnosis</li>
+              <li>Experiment roadmap and implementation guidance</li>
             </ul>
           </article>
         </div>
@@ -77,24 +82,36 @@
 
       <section class="reveal">
         <div class="section-head">
-          <p class="eyebrow">Typical Deliverables</p>
+          <p class="eyebrow">How We Add Value</p>
           <h2>What clients usually receive in the first 90 days</h2>
         </div>
         <div class="grid-2">
-          <article class="card">
+          <article class="card" data-tilt>
             <h3>Commercial Growth Plan</h3>
             <p>
-              A prioritized plan linking channel strategy, creative themes, and
-              conversion milestones to clear commercial targets.
+              A prioritised plan linking strategy, media, creative, and conversion
+              tasks to measurable business outcomes.
             </p>
           </article>
-          <article class="card">
-            <h3>Execution Roadmap</h3>
+          <article class="card" data-tilt>
+            <h3>Execution Cadence</h3>
             <p>
-              Weekly testing calendar covering paid media experiments, landing
-              page upgrades, and reporting checkpoints.
+              Weekly experiments, optimisation actions, and reporting checkpoints
+              so momentum stays high and learnings compound.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="card">
+          <p class="eyebrow">Need Similar Delivery?</p>
+          <h2>Tell us what your team needs to improve next</h2>
+          <p class="lead">
+            We can map the best service mix based on your current setup,
+            commercial objective, and available internal resource.
+          </p>
+          <a class="btn btn-primary" data-magnetic href="contact.html">Start a Conversation</a>
         </div>
       </section>
     </main>
@@ -102,6 +119,7 @@
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

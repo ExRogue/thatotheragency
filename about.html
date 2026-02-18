@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | That Other Agency</title>
     <meta
       name="description"
-      content="About That Other Agency, a London growth agency focused on measurable outcomes through strategy and execution."
+      content="About That Other Agency, a London-based growth agency combining strategic rigour with practical execution."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,80 +18,97 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="That Other Agency home">
         <img src="assets/logo.svg" alt="That Other Agency logo" />
         <span>That Other Agency</span>
       </a>
-      <nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
         <a href="services.html">Services</a>
         <a href="work.html">Work</a>
         <a class="current" href="about.html">About</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a class="btn btn-ghost" href="contact.html">Book a Strategy Call</a>
+      <a class="btn btn-ghost header-cta" href="contact.html">Book a Strategy Call</a>
     </header>
 
     <main>
       <section class="page-hero reveal">
         <p class="eyebrow">About</p>
-        <h1>A practical growth partner for ambitious teams</h1>
+        <h1>A practical growth partner for teams that care about outcomes</h1>
         <p class="lead">
-          That Other Agency was built for founders and marketing teams who need
-          focused execution and clear thinking, not bloated processes or vague
-          reporting.
+          That Other Agency was built for founders and marketing leads who want
+          commercial clarity, disciplined execution, and a direct line between
+          marketing activity and business impact.
         </p>
       </section>
 
       <section class="reveal">
         <div class="grid-3">
-          <article class="card">
-            <h3>Principle 1: Clarity over complexity</h3>
+          <article class="card" data-tilt>
+            <h3>Clarity Over Complexity</h3>
             <p>
-              We simplify what matters most: offer-market fit, message relevance,
-              and conversion pathways that support commercial growth.
+              We simplify strategic decisions by focusing on demand quality,
+              offer relevance, and conversion behaviour.
             </p>
           </article>
-          <article class="card">
-            <h3>Principle 2: Speed with structure</h3>
+          <article class="card" data-tilt>
+            <h3>Speed With Structure</h3>
             <p>
-              Teams grow faster when they test in controlled cycles and make
-              decisions on high-signal data.
+              Weekly execution loops keep momentum high while preserving rigour
+              in testing, measurement, and review.
             </p>
           </article>
-          <article class="card">
-            <h3>Principle 3: Outcomes over optics</h3>
+          <article class="card" data-tilt>
+            <h3>Commercial Accountability</h3>
             <p>
-              We prioritize metrics tied to pipeline and revenue, not activity
-              volume or presentation polish.
+              We prioritise activity that improves pipeline quality, acquisition
+              efficiency, and sustainable growth.
             </p>
           </article>
         </div>
       </section>
 
       <section class="reveal">
-        <div class="section-head">
-          <p class="eyebrow">Operating Rhythm</p>
-          <h2>How collaboration is structured</h2>
-        </div>
-        <article class="card">
-          <ol class="timeline">
-            <li>Week 1: commercial and channel diagnosis</li>
-            <li>Week 2: positioning and experiment design</li>
-            <li>Week 3: execution across paid and conversion</li>
-            <li>Week 4: review, learnings, and next-cycle planning</li>
+        <div class="card">
+          <p class="eyebrow">How We Work</p>
+          <h2>Typical monthly operating rhythm</h2>
+          <ol>
+            <li>Week 1: channel and funnel diagnosis, priority setting</li>
+            <li>Week 2: strategy alignment and experiment planning</li>
+            <li>Week 3: delivery across paid media, creative, and CRO</li>
+            <li>Week 4: performance review and next-cycle decisions</li>
           </ol>
           <p>
-            This rhythm keeps momentum high while maintaining strategic quality.
+            This framework keeps strategic focus and delivery speed aligned,
+            especially when teams are balancing multiple priorities.
           </p>
-        </article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="card">
+          <p class="eyebrow">Ready to Partner?</p>
+          <h2>Let us review your current growth setup</h2>
+          <p class="lead">
+            We will identify your highest-leverage opportunities and recommend a
+            realistic starting plan.
+          </p>
+          <a class="btn btn-primary" data-magnetic href="contact.html">Speak With the Team</a>
+        </div>
       </section>
     </main>
 
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

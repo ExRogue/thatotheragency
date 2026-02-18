@@ -1,0 +1,20 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g2" x1="150" y1="130" x2="1460" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC28C"/>
+      <stop offset="0.55" stop-color="#F15A24"/>
+      <stop offset="1" stop-color="#D93D2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="#FFF7F0"/>
+  <rect x="136" y="120" width="1328" height="660" rx="30" fill="#FFFFFF" stroke="#F0D7C8" stroke-width="4"/>
+  <circle cx="1320" cy="170" r="210" fill="url(#g2)" opacity="0.25"/>
+  <path d="M260 250H860" stroke="#F1DCCF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M260 350H940" stroke="#F1DCCF" stroke-width="14" stroke-linecap="round"/>
+  <path d="M260 450H760" stroke="#F1DCCF" stroke-width="14" stroke-linecap="round"/>
+  <rect x="980" y="250" width="360" height="340" rx="22" fill="url(#g2)" opacity="0.95"/>
+  <circle cx="1160" cy="410" r="110" fill="#FFF3EA"/>
+  <path d="M1104 410L1148 454L1218 364" stroke="#D74730" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="178" y="682" fill="#6B3121" font-family="Sora, Arial" font-size="52" font-weight="700">SEO Fixes</text>
+  <text x="178" y="742" fill="#8E5C43" font-family="Sora, Arial" font-size="34">Qualified Traffic, Better Fit</text>
+</svg>

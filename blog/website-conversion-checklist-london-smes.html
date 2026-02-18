@@ -1,42 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Conversion Checklist for London SMEs | That Other Agency</title>
-    <meta name="description" content="A conversion checklist London SMEs can apply to improve lead quality and website performance without a full rebuild." />
+    <meta
+      name="description"
+      content="A practical conversion checklist London SMEs can apply to improve enquiry quality and increase website performance."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="That Other Agency logo" /><span>That Other Agency</span></a>
-      <nav><a href="../services.html">Services</a><a href="../work.html">Work</a><a href="../about.html">About</a><a class="current" href="index.html">Blog</a><a href="../contact.html">Contact</a></nav>
-      <a class="btn btn-ghost" href="../contact.html">Book a Call</a>
+      <a class="brand" href="../index.html" aria-label="That Other Agency home">
+        <img src="../assets/logo.svg" alt="That Other Agency logo" />
+        <span>That Other Agency</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../services.html">Services</a>
+        <a href="../work.html">Work</a>
+        <a href="../about.html">About</a>
+        <a class="current" href="index.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-ghost header-cta" href="../contact.html">Book a Strategy Call</a>
     </header>
+
     <main>
       <article class="blog-post reveal">
-        <p class="eyebrow">Conversion Rate Optimization</p>
+        <p class="eyebrow">CRO</p>
         <h1>Website Conversion Checklist for London SMEs</h1>
-        <p class="meta">Published February 18, 2026</p>
-        <p>Most SME websites can improve lead output without a full redesign. Focus on clarity, trust, and friction reduction first.</p>
-        <h2>Checklist</h2>
+        <p class="post-meta">Published 18 February 2026 · 6 min read</p>
+
+        <figure class="post-image">
+          <img src="../assets/blog/cro-checklist.svg" alt="Gradient checklist illustration for conversion optimisation" />
+        </figure>
+
+        <p>
+          Most SME websites can improve enquiry quality without a full rebuild.
+          Start with message clarity, trust signals, and friction removal.
+        </p>
+
+        <aside class="insight-box">
+          <strong>Key point:</strong>
+          Conversion gains usually come from prioritised structural updates, not
+          visual redesign alone.
+        </aside>
+
+        <h2>Essential conversion checklist</h2>
         <ul>
           <li>One clear value proposition above the fold</li>
-          <li>Primary CTA visible on every key section</li>
-          <li>Proof blocks: testimonials, outcomes, case highlights</li>
-          <li>Fast mobile experience and readable typography</li>
-          <li>Short forms with qualification fields only</li>
-          <li>Service pages linked directly from blog content</li>
-          <li>Thank-you page with next-step expectations</li>
+          <li>Primary CTA visible on each high-intent section</li>
+          <li>Proof blocks with realistic delivery examples</li>
+          <li>Fast, readable mobile layouts</li>
+          <li>Short forms with useful qualification fields</li>
+          <li>Internal links from blog content to service pages</li>
+          <li>Post-enquiry next steps stated clearly</li>
         </ul>
-        <p>If your team wants implementation support, start with our <a href="../contact.html">contact page</a>.</p>
+
+        <h2>Prioritise by expected impact</h2>
+        <p>
+          If resources are limited, start with page sections that most directly
+          influence enquiries: headline hierarchy, service proof, and form flow.
+        </p>
+
+        <p>
+          For hands-on support, use our
+          <a class="highlight" href="../contact.html">contact page</a> and
+          we will suggest a practical first sprint.
+        </p>
+
+        <div class="article-nav">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+          <a class="btn btn-primary" data-magnetic href="../contact.html">Request a CRO Review</a>
+        </div>
       </article>
     </main>
-    <footer><p>© <span id="year"></span> That Other Agency. All rights reserved.</p></footer>
+
+    <footer>
+      <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
+    </footer>
+
     <script src="../script.js"></script>
   </body>
 </html>

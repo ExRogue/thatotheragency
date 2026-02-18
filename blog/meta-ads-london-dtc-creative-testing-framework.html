@@ -1,43 +1,103 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meta Ads for London DTC Brands: Creative Testing Framework | That Other Agency</title>
-    <meta name="description" content="A weekly creative testing framework for London DTC brands running Meta Ads to scale with stronger economics." />
+    <meta
+      name="description"
+      content="A weekly creative testing framework for London DTC brands running Meta Ads and looking to scale with stronger media efficiency."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="../index.html"><img src="../assets/logo.svg" alt="That Other Agency logo" /><span>That Other Agency</span></a>
-      <nav><a href="../services.html">Services</a><a href="../work.html">Work</a><a href="../about.html">About</a><a class="current" href="index.html">Blog</a><a href="../contact.html">Contact</a></nav>
-      <a class="btn btn-ghost" href="../contact.html">Book a Call</a>
+      <a class="brand" href="../index.html" aria-label="That Other Agency home">
+        <img src="../assets/logo.svg" alt="That Other Agency logo" />
+        <span>That Other Agency</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="../services.html">Services</a>
+        <a href="../work.html">Work</a>
+        <a href="../about.html">About</a>
+        <a class="current" href="index.html">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-ghost header-cta" href="../contact.html">Book a Strategy Call</a>
     </header>
+
     <main>
       <article class="blog-post reveal">
         <p class="eyebrow">Paid Social</p>
         <h1>Meta Ads for London DTC Brands: Creative Testing Framework</h1>
-        <p class="meta">Published February 18, 2026</p>
-        <p>Most Meta accounts fail because they test too many variables at once. Better results come from a simple, repeated testing structure with clear pass/fail criteria.</p>
-        <h2>Week structure</h2>
+        <p class="post-meta">Published 18 February 2026 · 7 min read</p>
+
+        <figure class="post-image">
+          <img src="../assets/blog/meta-testing.svg" alt="Gradient illustration showing creative test variants" />
+        </figure>
+
+        <p>
+          Many paid social accounts stall because creative variables are tested
+          without structure. A consistent testing programme improves signal
+          quality and budget confidence.
+        </p>
+
+        <aside class="insight-box">
+          <strong>Key point:</strong>
+          Better testing discipline often outperforms higher production spend.
+        </aside>
+
+        <h2>Week-by-week testing rhythm</h2>
         <ul>
-          <li>Week 1: test 3 hooks against one offer</li>
-          <li>Week 2: scale top hook with 3 new body angles</li>
-          <li>Week 3: test new creative formats (UGC, demo, founder-led)</li>
-          <li>Week 4: consolidate winners and shift budget</li>
+          <li>Week 1: test three hooks against one offer and audience segment</li>
+          <li>Week 2: scale winning hooks with new body-angle variants</li>
+          <li>Week 3: test new formats (UGC, founder-led, demo-led)</li>
+          <li>Week 4: consolidate winners and reallocate budget</li>
         </ul>
+
         <h2>What to measure</h2>
-        <p>Measure hold-rate, thumb-stop rate, CTR, and post-click conversion rate. Winning creatives need both attention and conversion, not one without the other.</p>
-        <h2>Common London DTC pitfall</h2>
-        <p>Brands often over-invest in polished content and under-invest in angle variety. Volume of angle testing usually beats production polish early on.</p>
-        <p>Need implementation help? Review our <a href="../services.html">paid performance service</a>.</p>
+        <p>
+          Review thumb-stop performance, hold rate, CTR, and post-click
+          conversion quality. Creative should be judged by revenue behaviour, not
+          only top-of-funnel engagement.
+        </p>
+
+        <h2>Common pitfall for DTC teams</h2>
+        <p>
+          Teams often over-index on polished edits and under-invest in angle
+          diversity. In early cycles, message variation usually creates stronger
+          learning than visual polish alone.
+        </p>
+
+        <p>
+          If you need practical support here, our
+          <a class="highlight" href="../services.html">paid media and creative testing services</a>
+          are designed for this exact challenge.
+        </p>
+
+        <div class="article-nav">
+          <a class="btn btn-ghost" href="index.html">Back to Blog</a>
+          <a class="btn btn-primary" data-magnetic href="../contact.html">Discuss Paid Media</a>
+        </div>
       </article>
     </main>
-    <footer><p>© <span id="year"></span> That Other Agency. All rights reserved.</p></footer>
+
+    <footer>
+      <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
+    </footer>
+
     <script src="../script.js"></script>
   </body>
 </html>

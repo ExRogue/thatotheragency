@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>That Other Agency | London Growth Agency</title>
     <meta
       name="description"
-      content="That Other Agency is a London growth agency combining strategy, paid media, and creative execution to help brands scale efficiently."
+      content="That Other Agency is a London growth agency delivering strategy, paid media management, creative testing systems, and CRO-led funnel optimisation."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,50 +18,130 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="That Other Agency home">
         <img src="assets/logo.svg" alt="That Other Agency logo" />
         <span>That Other Agency</span>
       </a>
-      <nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
         <a href="services.html">Services</a>
         <a href="work.html">Work</a>
         <a href="about.html">About</a>
         <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <a class="btn btn-ghost" href="contact.html">Book a Strategy Call</a>
+      <a class="btn btn-ghost header-cta" href="contact.html">Book a Strategy Call</a>
     </header>
 
     <main>
       <section class="hero reveal">
-        <p class="eyebrow">London Growth & Creative Partner</p>
-        <h1>We build growth systems that hold up under scale.</h1>
-        <p class="lead">
-          That Other Agency helps ambitious teams turn marketing into a repeatable
-          growth engine by combining offer positioning, paid media execution,
-          conversion strategy, and high-velocity creative testing.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html">Start Your Project</a>
-          <a class="btn btn-ghost" href="work.html">View Client Work</a>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">London Growth & Creative Partner</p>
+            <h1>Marketing built for commercial traction, not just activity.</h1>
+            <p class="lead">
+              We help brands improve demand quality, sharpen offer positioning,
+              and run paid acquisition with a stronger conversion framework.
+              Our work combines strategy and execution in one operating rhythm.
+            </p>
+            <div>
+              <a class="btn btn-primary" data-magnetic href="contact.html">Start Your Project</a>
+              <a class="btn btn-ghost" href="work.html">See Client Work</a>
+            </div>
+          </div>
+          <aside class="card hero-panel" data-tilt>
+            <p class="eyebrow">What You Get</p>
+            <h3>Hands-on delivery across the full growth cycle</h3>
+            <ul>
+              <li>Channel strategy grounded in commercial goals</li>
+              <li>Creative testing built around buyer intent</li>
+              <li>Funnel and landing-page optimisation priorities</li>
+              <li>Clear reporting with practical next actions</li>
+            </ul>
+          </aside>
         </div>
-        <div class="hero-metrics">
-          <article class="card">
-            <p class="kicker">Focus</p>
-            <h3 class="metric">Paid Media</h3>
+
+        <div class="stat-grid">
+          <article class="card" data-tilt>
+            <span class="stat-value" data-count="4">0</span>
+            <p class="stat-label">Core services delivered</p>
           </article>
-          <article class="card">
-            <p class="kicker">Focus</p>
-            <h3 class="metric">Creative Testing</h3>
+          <article class="card" data-tilt>
+            <span class="stat-value" data-count="3">0</span>
+            <p class="stat-label">Active client examples on site</p>
           </article>
-          <article class="card">
-            <p class="kicker">Focus</p>
-            <h3 class="metric">CRO Systems</h3>
+          <article class="card" data-tilt>
+            <span class="stat-value" data-count="90">0</span>
+            <p class="stat-label">Day operating plans available</p>
           </article>
-          <article class="card">
-            <p class="kicker">Location</p>
-            <h3 class="metric">London, UK</h3>
+          <article class="card" data-tilt>
+            <span class="stat-value" data-count="1">0</span>
+            <p class="stat-label">Integrated strategy + execution team</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reveal">
+        <div class="section-head">
+          <p class="eyebrow">Core Services</p>
+          <h2>The four services we lead with</h2>
+          <p class="lead">
+            These are the main services we provide and where we generate most client impact.
+          </p>
+        </div>
+        <div class="grid-2 service-grid">
+          <article class="card" data-tilt>
+            <h3>Growth Strategy & Offer Positioning</h3>
+            <p>
+              We identify where performance is leaking and reframe your offer
+              around buyer intent, margin constraints, and conversion friction.
+            </p>
+            <ul>
+              <li>Audience intent mapping</li>
+              <li>Value proposition and messaging architecture</li>
+              <li>Channel and funnel prioritisation</li>
+            </ul>
+          </article>
+          <article class="card" data-tilt>
+            <h3>Paid Media Management</h3>
+            <p>
+              Full-funnel paid acquisition across Meta, Google, and TikTok with
+              clear weekly optimisation plans and reporting you can act on.
+            </p>
+            <ul>
+              <li>Account structure and media planning</li>
+              <li>Budget pacing and spend control</li>
+              <li>Creative performance analysis</li>
+            </ul>
+          </article>
+          <article class="card" data-tilt>
+            <h3>Creative Testing Systems</h3>
+            <p>
+              We build structured creative testing cycles so your team learns
+              quickly and scales winning angles with confidence.
+            </p>
+            <ul>
+              <li>Hook and concept testing matrix</li>
+              <li>Creative briefing and production direction</li>
+              <li>Winner extraction and iteration plans</li>
+            </ul>
+          </article>
+          <article class="card" data-tilt>
+            <h3>CRO & Funnel Optimisation</h3>
+            <p>
+              Conversion-focused improvements across landing pages, forms,
+              product pages, and key user journeys.
+            </p>
+            <ul>
+              <li>Conversion audits and friction diagnosis</li>
+              <li>Page structure and copy updates</li>
+              <li>Experiment roadmap and prioritisation</li>
+            </ul>
           </article>
         </div>
       </section>
@@ -69,96 +149,75 @@
       <section class="reveal">
         <div class="section-head">
           <p class="eyebrow">Selected Clients</p>
-          <h2>Trusted by teams that want commercial outcomes, not vanity metrics</h2>
+          <h2>Current client examples</h2>
         </div>
         <div class="grid-3">
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Made Of More</p>
-            <p>
-              Creative and performance support focused on message clarity,
-              conversion quality, and campaign testing discipline.
-            </p>
+            <h3>Brand messaging and paid media support</h3>
+            <ul>
+              <li>Offer and positioning review</li>
+              <li>Channel execution support</li>
+              <li>Funnel friction checks and refinements</li>
+            </ul>
           </article>
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Thirak</p>
-            <p>
-              Strategic marketing execution with stronger channel positioning,
-              clearer offer architecture, and faster learning loops.
-            </p>
+            <h3>Strategy-led growth planning and delivery</h3>
+            <ul>
+              <li>Commercial planning framework</li>
+              <li>Creative testing programme</li>
+              <li>Reporting cadence for faster decisions</li>
+            </ul>
           </article>
-          <article class="card">
+          <article class="card" data-tilt>
             <p class="client-chip">Ventete</p>
-            <p>
-              Growth support across media and digital touchpoints to improve
-              demand generation consistency and decision speed.
-            </p>
+            <h3>Demand generation and digital journey refinement</h3>
+            <ul>
+              <li>Audience and channel alignment</li>
+              <li>Landing-page and user-flow updates</li>
+              <li>Experiment prioritisation model</li>
+            </ul>
           </article>
         </div>
       </section>
 
       <section class="reveal">
         <div class="section-head">
-          <p class="eyebrow">How We Work</p>
-          <h2>One integrated model from strategy to execution</h2>
-          <p class="lead">
-            Most teams lose performance in handoffs. We run strategy, creative,
-            paid media, and conversion work in the same operating rhythm so your
-            growth priorities ship faster and with clearer accountability.
-          </p>
+          <p class="eyebrow">From the Blog</p>
+          <h2>London-focused growth insights</h2>
         </div>
-        <div class="grid-4">
-          <article class="card">
-            <h3>1. Diagnose</h3>
-            <p>Audit channels, messaging, and funnel friction to identify the highest-leverage fixes.</p>
+        <div class="blog-grid">
+          <article class="card blog-card" data-tilt>
+            <img class="blog-thumb" src="assets/blog/lead-costs.svg" alt="Illustration for lowering lead costs" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">Paid Media</span><span class="tag">London</span></div>
+              <h3>How London Service Brands Can Lower Lead Costs in 2026</h3>
+              <p>Practical adjustments for cost control and stronger lead quality.</p>
+              <a class="highlight" href="blog/london-service-brands-lower-lead-costs-2026.html">Read article</a>
+            </div>
           </article>
-          <article class="card">
-            <h3>2. Position</h3>
-            <p>Refine offer framing and audience intent mapping before scaling spend.</p>
-          </article>
-          <article class="card">
-            <h3>3. Execute</h3>
-            <p>Launch creative tests, channel experiments, and conversion updates in weekly cycles.</p>
-          </article>
-          <article class="card">
-            <h3>4. Scale</h3>
-            <p>Increase budget where economics hold and tighten weak links in the funnel.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="reveal">
-        <div class="section-head">
-          <p class="eyebrow">From The Blog</p>
-          <h2>Practical growth content for London-based teams</h2>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <h3>How London Service Brands Can Lower Lead Costs in 2026</h3>
-            <p>Channel structure and conversion changes that improve CPL quality.</p>
-            <a class="highlight" href="blog/london-service-brands-lower-lead-costs-2026.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>SEO for London Agencies: 7 Fixes That Drive Qualified Traffic</h3>
-            <p>Technical and on-page priorities that support better inbound intent.</p>
-            <a class="highlight" href="blog/seo-for-london-agencies-7-fixes.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>Website Conversion Checklist for London SMEs</h3>
-            <p>A practical checklist to lift lead quality without a full rebuild.</p>
-            <a class="highlight" href="blog/website-conversion-checklist-london-smes.html">Read article</a>
+          <article class="card blog-card" data-tilt>
+            <img class="blog-thumb" src="assets/blog/seo-fixes.svg" alt="Illustration for SEO fixes" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">SEO</span><span class="tag">Agency</span></div>
+              <h3>SEO for London Agencies: 7 Fixes That Drive Qualified Traffic</h3>
+              <p>High-priority on-site improvements for better local visibility.</p>
+              <a class="highlight" href="blog/seo-for-london-agencies-7-fixes.html">Read article</a>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="reveal">
         <div class="card">
-          <p class="eyebrow">Ready To Build?</p>
-          <h2>Tell us your target, timeline, and current growth bottleneck</h2>
+          <p class="eyebrow">Ready to Move?</p>
+          <h2>Share your goal, timeline, and current bottleneck</h2>
           <p class="lead">
-            We will send you a clear first-priority action plan before discussing
-            any ongoing engagement.
+            We will review your setup and reply with a practical first-step plan
+            before proposing any longer engagement.
           </p>
-          <a class="btn btn-primary" href="contact.html">Contact That Other Agency</a>
+          <a class="btn btn-primary" data-magnetic href="contact.html">Speak With That Other Agency</a>
         </div>
       </section>
     </main>
@@ -166,6 +225,7 @@
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

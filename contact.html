@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | That Other Agency</title>
     <meta
       name="description"
-      content="Contact That Other Agency for growth strategy, paid media, and conversion support in London and across the UK."
+      content="Contact That Other Agency for strategy, paid media, creative testing, and funnel optimisation support in London and across the UK."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,57 +18,84 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="That Other Agency home">
         <img src="assets/logo.svg" alt="That Other Agency logo" />
         <span>That Other Agency</span>
       </a>
-      <nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
         <a href="services.html">Services</a>
         <a href="work.html">Work</a>
         <a href="about.html">About</a>
         <a href="blog/index.html">Blog</a>
         <a class="current" href="contact.html">Contact</a>
       </nav>
-      <a class="btn btn-ghost" href="contact.html">Book a Strategy Call</a>
+      <a class="btn btn-ghost header-cta" href="contact.html">Book a Strategy Call</a>
     </header>
 
     <main>
       <section class="page-hero reveal">
         <p class="eyebrow">Contact</p>
-        <h1>Share your growth target and current blocker</h1>
+        <h1>Tell us your growth target and current blocker</h1>
         <p class="lead">
-          We respond with a practical first-step plan. If we are not the right
-          fit, we will tell you directly.
+          Share the essentials below and we will respond with practical next
+          steps. The form opens your email client so you keep full control.
         </p>
       </section>
 
       <section class="reveal">
-        <div class="grid-2">
-          <article class="card">
-            <h3>Email</h3>
-            <p><a class="highlight" href="mailto:hello@thatotheragency.co.uk">hello@thatotheragency.co.uk</a></p>
-            <p>Typical reply time: within one business day.</p>
+        <div class="contact-grid">
+          <article class="card" data-tilt>
+            <h3>Direct contact</h3>
+            <p>
+              Email: <a class="highlight" href="mailto:hello@thatotheragency.co.uk">hello@thatotheragency.co.uk</a>
+            </p>
+            <p>Location: London, United Kingdom</p>
+            <p>Typical response: within one business day</p>
           </article>
-          <article class="card">
-            <h3>Best Intro Format</h3>
-            <ul>
-              <li>Current monthly spend or lead volume</li>
-              <li>Main channel bottleneck</li>
-              <li>Target outcome over next 90 days</li>
-            </ul>
-          </article>
-        </div>
-      </section>
 
-      <section class="reveal">
-        <div class="card">
-          <p class="eyebrow">Location</p>
-          <h2>London, United Kingdom</h2>
-          <p>
-            We support London-based and UK-wide clients across strategy,
-            creative, paid media, and conversion optimization.
-          </p>
+          <article class="card">
+            <form class="contact-form" data-contact-form>
+              <div class="form-row">
+                <label>
+                  Name
+                  <input name="name" required />
+                </label>
+                <label>
+                  Email
+                  <input name="email" type="email" required />
+                </label>
+              </div>
+              <div class="form-row">
+                <label>
+                  Company
+                  <input name="company" />
+                </label>
+                <label>
+                  Budget range
+                  <select name="budget">
+                    <option value="Not specified">Not specified</option>
+                    <option value="Under GBP 5k/month">Under GBP 5k/month</option>
+                    <option value="GBP 5k to GBP 15k/month">GBP 5k to GBP 15k/month</option>
+                    <option value="GBP 15k+/month">GBP 15k+/month</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Project goals
+                <textarea name="message" required placeholder="What are you trying to improve over the next 90 days?"></textarea>
+              </label>
+              <small>
+                This will open your mail client with your details prefilled.
+              </small>
+              <button class="btn btn-primary" data-magnetic type="submit">Prepare Email Enquiry</button>
+            </form>
+          </article>
         </div>
       </section>
     </main>
@@ -76,6 +103,7 @@
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

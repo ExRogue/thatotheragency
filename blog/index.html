@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog | That Other Agency</title>
     <meta
       name="description"
-      content="London-focused growth strategy, paid media, SEO, and conversion insights from That Other Agency."
+      content="London-focused articles from That Other Agency on paid media, local SEO, and conversion-led growth."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,63 +18,107 @@
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
+
     <header class="site-header">
-      <a class="brand" href="../index.html">
+      <a class="brand" href="../index.html" aria-label="That Other Agency home">
         <img src="../assets/logo.svg" alt="That Other Agency logo" />
         <span>That Other Agency</span>
       </a>
-      <nav>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav">
         <a href="../services.html">Services</a>
         <a href="../work.html">Work</a>
         <a href="../about.html">About</a>
         <a class="current" href="index.html">Blog</a>
         <a href="../contact.html">Contact</a>
       </nav>
-      <a class="btn btn-ghost" href="../contact.html">Book a Strategy Call</a>
+      <a class="btn btn-ghost header-cta" href="../contact.html">Book a Strategy Call</a>
     </header>
+
     <main>
       <section class="page-hero reveal">
         <p class="eyebrow">Blog</p>
-        <h1>Growth playbooks for London and UK teams</h1>
+        <h1>Practical growth playbooks for London teams</h1>
         <p class="lead">
-          Actionable articles on paid media, SEO, conversion, and growth
-          operations. Every piece is written to help founders and marketing leads
-          make better decisions faster.
+          Articles designed to help founders and marketing leads improve demand
+          quality, conversion performance, and channel efficiency.
         </p>
-      </section>
-      <section class="reveal">
-        <div class="grid-2">
-          <article class="card">
-            <h3>How London Service Brands Can Lower Lead Costs in 2026</h3>
-            <p>Framework for reducing CPL while improving sales-qualified lead rates.</p>
-            <a class="highlight" href="london-service-brands-lower-lead-costs-2026.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>SEO for London Agencies: 7 Fixes That Drive Qualified Traffic</h3>
-            <p>High-priority SEO improvements for stronger local discoverability and lead quality.</p>
-            <a class="highlight" href="seo-for-london-agencies-7-fixes.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>Meta Ads for London DTC Brands: Creative Testing Framework</h3>
-            <p>Weekly creative testing system for consistent paid social performance.</p>
-            <a class="highlight" href="meta-ads-london-dtc-creative-testing-framework.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>London Local SEO for Agencies: Build a Pipeline from Search</h3>
-            <p>Local SEO structure to create repeatable inbound demand in core markets.</p>
-            <a class="highlight" href="london-local-seo-for-agencies-pipeline.html">Read article</a>
-          </article>
-          <article class="card">
-            <h3>Website Conversion Checklist for London SMEs</h3>
-            <p>Page structure and user-flow improvements that increase qualified inquiries.</p>
-            <a class="highlight" href="website-conversion-checklist-london-smes.html">Read article</a>
-          </article>
+        <div class="search-wrap">
+          <label>
+            <span class="kicker">Search blog topics</span>
+            <input
+              class="search-input"
+              data-blog-search
+              type="search"
+              placeholder="Search by topic, channel, or audience"
+            />
+          </label>
         </div>
       </section>
+
+      <section class="reveal">
+        <div class="blog-grid">
+          <article class="card blog-card" data-blog-card data-search="london service brands lower lead costs paid media cpl sql">
+            <img class="blog-thumb" src="../assets/blog/lead-costs.svg" alt="Abstract chart graphic in orange and red" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">Paid Media</span><span class="tag">Lead Quality</span></div>
+              <h3>How London Service Brands Can Lower Lead Costs in 2026</h3>
+              <p>Framework for reducing cost per lead while protecting quality.</p>
+              <a class="highlight" href="london-service-brands-lower-lead-costs-2026.html">Read article</a>
+            </div>
+          </article>
+
+          <article class="card blog-card" data-blog-card data-search="seo london agencies fixes qualified traffic local search">
+            <img class="blog-thumb" src="../assets/blog/seo-fixes.svg" alt="Abstract SEO-themed graphic with gradients" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">SEO</span><span class="tag">Agency Growth</span></div>
+              <h3>SEO for London Agencies: 7 Fixes That Drive Qualified Traffic</h3>
+              <p>Site and content priorities that support stronger inbound intent.</p>
+              <a class="highlight" href="seo-for-london-agencies-7-fixes.html">Read article</a>
+            </div>
+          </article>
+
+          <article class="card blog-card" data-blog-card data-search="meta ads london dtc creative testing framework paid social">
+            <img class="blog-thumb" src="../assets/blog/meta-testing.svg" alt="Abstract paid social creative testing graphic" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">Paid Social</span><span class="tag">Creative Testing</span></div>
+              <h3>Meta Ads for London DTC Brands: Creative Testing Framework</h3>
+              <p>A weekly testing model for stronger creative and spend decisions.</p>
+              <a class="highlight" href="meta-ads-london-dtc-creative-testing-framework.html">Read article</a>
+            </div>
+          </article>
+
+          <article class="card blog-card" data-blog-card data-search="local seo agencies pipeline search london visibility">
+            <img class="blog-thumb" src="../assets/blog/local-seo.svg" alt="Abstract local search map-style gradient graphic" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">Local SEO</span><span class="tag">Pipeline</span></div>
+              <h3>London Local SEO for Agencies: Build a Pipeline from Search</h3>
+              <p>How to turn local search visibility into qualified pipeline.</p>
+              <a class="highlight" href="london-local-seo-for-agencies-pipeline.html">Read article</a>
+            </div>
+          </article>
+
+          <article class="card blog-card" data-blog-card data-search="website conversion checklist london sme cro lead conversion rate">
+            <img class="blog-thumb" src="../assets/blog/cro-checklist.svg" alt="Abstract conversion checklist style graphic" />
+            <div class="card-body">
+              <div class="tag-row"><span class="tag">CRO</span><span class="tag">SME</span></div>
+              <h3>Website Conversion Checklist for London SMEs</h3>
+              <p>High-impact checklist to improve conversion without full rebuilds.</p>
+              <a class="highlight" href="website-conversion-checklist-london-smes.html">Read article</a>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" data-blog-empty hidden>No articles match that search yet. Try another phrase.</p>
+      </section>
     </main>
+
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
     </footer>
+
     <script src="../script.js"></script>
   </body>
 </html>

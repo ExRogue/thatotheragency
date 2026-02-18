@@ -1,0 +1,24 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g5" x1="150" y1="120" x2="1460" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC08A"/>
+      <stop offset="0.5" stop-color="#F15A24"/>
+      <stop offset="1" stop-color="#D93D2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="#FFF7F0"/>
+  <circle cx="1280" cy="140" r="220" fill="#FF8A45" opacity="0.22"/>
+  <rect x="250" y="120" width="1100" height="660" rx="34" fill="#FFFFFF" stroke="#F0D7C8" stroke-width="4"/>
+  <rect x="320" y="230" width="960" height="90" rx="16" fill="#FFF1E8"/>
+  <rect x="320" y="360" width="960" height="90" rx="16" fill="#FFF1E8"/>
+  <rect x="320" y="490" width="960" height="90" rx="16" fill="#FFF1E8"/>
+  <rect x="320" y="620" width="960" height="90" rx="16" fill="#FFF1E8"/>
+  <circle cx="390" cy="275" r="26" fill="url(#g5)"/>
+  <circle cx="390" cy="405" r="26" fill="url(#g5)"/>
+  <circle cx="390" cy="535" r="26" fill="url(#g5)"/>
+  <circle cx="390" cy="665" r="26" fill="url(#g5)"/>
+  <text x="470" y="284" fill="#7E3B29" font-family="Sora, Arial" font-size="34" font-weight="600">Clear value proposition</text>
+  <text x="470" y="414" fill="#7E3B29" font-family="Sora, Arial" font-size="34" font-weight="600">Strong proof blocks</text>
+  <text x="470" y="544" fill="#7E3B29" font-family="Sora, Arial" font-size="34" font-weight="600">Mobile-first usability</text>
+  <text x="470" y="674" fill="#7E3B29" font-family="Sora, Arial" font-size="34" font-weight="600">Fast lead handover</text>
+</svg>
