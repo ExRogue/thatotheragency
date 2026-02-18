@@ -15,10 +15,13 @@
 
     if (type === "underline") {
       svg.setAttribute("viewBox", "0 0 120 24");
-      path.setAttribute("d", "M4 16 C24 12, 50 18, 76 14 C92 12, 106 13, 116 14");
+      path.setAttribute("d", "M4 16 C22 13, 42 14, 60 15 C78 16, 97 14, 116 13");
     } else {
-      svg.setAttribute("viewBox", "0 0 140 60");
-      path.setAttribute("d", "M8 33 C12 12, 52 6, 102 10 C126 12, 136 20, 132 34 C126 50, 88 56, 40 52 C18 50, 8 42, 8 33");
+      svg.setAttribute("viewBox", "0 0 140 58");
+      path.setAttribute(
+        "d",
+        "M10 30 C12 12, 48 4, 90 6 C120 7, 134 16, 132 30 C130 46, 100 54, 60 53 C30 52, 10 43, 10 30 Z",
+      );
     }
 
     svg.appendChild(path);
