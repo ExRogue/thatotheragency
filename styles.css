@@ -766,6 +766,10 @@ footer p {
   color: #fff;
 }
 
+.ink-mark[data-scribble="circle"] {
+  white-space: nowrap;
+}
+
 .ink-svg {
   position: absolute;
   pointer-events: none;

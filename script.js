@@ -85,10 +85,10 @@
       const type = el.getAttribute("data-scribble");
       const box = el.getBoundingClientRect();
       const isCircle = type === "circle";
-      const padX = isCircle ? 7 : 8;
-      const padY = isCircle ? 6 : 5;
-      const width = Math.max(44, Math.ceil(box.width + padX * 2));
-      const height = Math.max(22, Math.ceil(box.height + padY * 2));
+      const padX = isCircle ? 5 : 8;
+      const padY = isCircle ? 4 : 5;
+      const width = Math.max(40, Math.ceil(box.width + padX * 2));
+      const height = Math.max(20, Math.ceil(box.height + padY * 2));
 
       const svg = document.createElementNS(svgNS, "svg");
       const path = document.createElementNS(svgNS, "path");
@@ -118,15 +118,15 @@
         svg.style.left = `${-padX}px`;
         svg.style.top = `${-padY}px`;
 
-        const left = 3;
-        const right = width - 3;
-        const top = 3;
-        const bottom = height - 3;
+        const left = 2;
+        const right = width - 2;
+        const top = 2;
+        const bottom = height - 2;
         const mid = height / 2;
 
         path.setAttribute(
           "d",
-          `M ${left} ${mid} C ${left + 6} ${top}, ${right - 18} ${top - 0.5}, ${right} ${mid - 0.8} C ${right - 6} ${bottom + 0.4}, ${left + 16} ${bottom + 0.5}, ${left} ${mid}`,
+          `M ${left} ${mid} C ${left} ${top + 2}, ${right} ${top + 2}, ${right} ${mid} C ${right} ${bottom - 2}, ${left} ${bottom - 2}, ${left} ${mid}`,
         );
       }
 
