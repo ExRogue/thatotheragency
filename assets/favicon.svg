@@ -5,12 +5,12 @@
       <stop offset="0.56" stop-color="#52D4FF"/>
       <stop offset="1" stop-color="#2F8CFF"/>
     </linearGradient>
-    <linearGradient id="glyph" x1="18" y1="16" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+    <linearGradient id="glyph" x1="16" y1="16" x2="46" y2="48" gradientUnits="userSpaceOnUse">
       <stop stop-color="#A9FFEE"/>
       <stop offset="1" stop-color="#69B6FF"/>
     </linearGradient>
   </defs>
 
   <rect x="3" y="3" width="58" height="58" rx="14" fill="#071426" stroke="url(#stroke)" stroke-width="2.8"/>
-  <path d="M18 19H46V25.8H35.2V46H28.8V25.8H18V19Z" fill="url(#glyph)"/>
+  <path d="M16 18H48V25.2H36V46H28V25.2H16V18Z" fill="url(#glyph)"/>
 </svg>
