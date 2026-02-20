@@ -83,10 +83,12 @@
       if (el.querySelector("svg")) return;
 
       const type = el.getAttribute("data-scribble");
-      const padX = type === "circle" ? 12 : 8;
-      const padY = type === "circle" ? 10 : 5;
-      const width = Math.max(48, Math.ceil(el.offsetWidth + padX * 2));
-      const height = Math.max(24, Math.ceil(el.offsetHeight + padY * 2));
+      const box = el.getBoundingClientRect();
+      const isCircle = type === "circle";
+      const padX = isCircle ? 7 : 8;
+      const padY = isCircle ? 6 : 5;
+      const width = Math.max(44, Math.ceil(box.width + padX * 2));
+      const height = Math.max(22, Math.ceil(box.height + padY * 2));
 
       const svg = document.createElementNS(svgNS, "svg");
       const path = document.createElementNS(svgNS, "path");
@@ -98,7 +100,7 @@
       svg.setAttribute("width", String(width));
       svg.setAttribute("height", String(height));
 
-      if (type === "underline") {
+      if (!isCircle) {
         svg.style.left = `${-padX}px`;
         svg.style.bottom = "0.02em";
 
@@ -114,16 +116,17 @@
         );
       } else {
         svg.style.left = `${-padX}px`;
-        svg.style.top = `${-padY * 0.35}px`;
+        svg.style.top = `${-padY}px`;
 
-        const rx = Math.max(16, (width - 8) / 2);
-        const ry = Math.max(10, (height - 8) / 2);
-        const cx = width / 2;
-        const cy = height / 2 + 1;
+        const left = 3;
+        const right = width - 3;
+        const top = 3;
+        const bottom = height - 3;
+        const mid = height / 2;
 
         path.setAttribute(
           "d",
-          `M ${cx - rx} ${cy} C ${cx - rx} ${cy - ry * 0.95}, ${cx - rx * 0.2} ${cy - ry}, ${cx} ${cy - ry} C ${cx + rx * 0.55} ${cy - ry}, ${cx + rx} ${cy - ry * 0.25}, ${cx + rx} ${cy} C ${cx + rx} ${cy + ry * 0.86}, ${cx + rx * 0.32} ${cy + ry}, ${cx} ${cy + ry} C ${cx - rx * 0.68} ${cy + ry}, ${cx - rx} ${cy + ry * 0.44}, ${cx - rx} ${cy}`,
+          `M ${left} ${mid} C ${left + 6} ${top}, ${right - 18} ${top - 0.5}, ${right} ${mid - 0.8} C ${right - 6} ${bottom + 0.4}, ${left + 16} ${bottom + 0.5}, ${left} ${mid}`,
         );
       }
 
