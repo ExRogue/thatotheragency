@@ -1,19 +1,16 @@
 <svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="That Other Agency logo">
   <defs>
-    <linearGradient id="toaStroke" x1="10" y1="8" x2="74" y2="76" gradientUnits="userSpaceOnUse">
+    <linearGradient id="aStroke" x1="9" y1="8" x2="73" y2="76" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6EF0D1"/>
-      <stop offset="0.55" stop-color="#52D4FF"/>
+      <stop offset="0.56" stop-color="#52D4FF"/>
       <stop offset="1" stop-color="#2F8CFF"/>
     </linearGradient>
-    <linearGradient id="toaGlyph" x1="22" y1="22" x2="62" y2="58" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7CF7DB"/>
-      <stop offset="1" stop-color="#4BA3FF"/>
+    <linearGradient id="aGlyph" x1="23" y1="21" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86FFE6"/>
+      <stop offset="1" stop-color="#5DAFFF"/>
     </linearGradient>
   </defs>
-
-  <rect x="4" y="4" width="76" height="76" rx="18" fill="#081325" stroke="url(#toaStroke)" stroke-width="3.5"/>
-
-  <path d="M22 26H62V34H47V59H37V34H22V26Z" fill="url(#toaGlyph)"/>
-  <path d="M49 44H60V33" stroke="#6EF0D1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="61" cy="23" r="4.5" fill="#6EF0D1"/>
+  <rect x="4" y="4" width="76" height="76" rx="18" fill="#071426" stroke="url(#aStroke)" stroke-width="3"/>
+  <path d="M22 24H62V32H47V60H37V32H22V24Z" fill="url(#aGlyph)"/>
+  <rect x="46" y="40" width="14" height="8" rx="4" fill="#6EF0D1"/>
 </svg>

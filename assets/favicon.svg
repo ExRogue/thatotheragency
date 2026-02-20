@@ -1,18 +1,16 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="favStroke" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+    <linearGradient id="aStroke" x1="9" y1="8" x2="73" y2="76" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6EF0D1"/>
-      <stop offset="0.58" stop-color="#52D4FF"/>
+      <stop offset="0.56" stop-color="#52D4FF"/>
       <stop offset="1" stop-color="#2F8CFF"/>
     </linearGradient>
-    <linearGradient id="favGlyph" x1="16" y1="16" x2="48" y2="46" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#7CF7DB"/>
-      <stop offset="1" stop-color="#4BA3FF"/>
+    <linearGradient id="aGlyph" x1="23" y1="21" x2="58" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86FFE6"/>
+      <stop offset="1" stop-color="#5DAFFF"/>
     </linearGradient>
   </defs>
-
-  <rect x="3" y="3" width="58" height="58" rx="14" fill="#081325" stroke="url(#favStroke)" stroke-width="3"/>
-  <path d="M15 19H49V25.5H36.5V46H28V25.5H15V19Z" fill="url(#favGlyph)"/>
-  <path d="M38 32H47V23" stroke="#6EF0D1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="48" cy="16" r="3.5" fill="#6EF0D1"/>
+  <rect x="4" y="4" width="76" height="76" rx="18" fill="#071426" stroke="url(#aStroke)" stroke-width="3.5"/>
+  <path d="M22 24H62V32H47V60H37V32H22V24Z" fill="url(#aGlyph)"/>
+  <rect x="46" y="40" width="14" height="8" rx="4" fill="#6EF0D1"/>
 </svg>
