@@ -6,50 +6,45 @@
     <title>Contact | That Other Agency</title>
     <meta
       name="description"
-      content="Contact That Other Agency for strategy, paid media, creative testing, and funnel optimisation support in London and across the UK."
+      content="Contact That Other Agency to discuss growth strategy, paid media management, creative testing, and CRO support for your business."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="canonical" href="https://www.thatotheragency.co.uk/contact.html" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="noise" aria-hidden="true"></div>
 
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="That Other Agency home">
-        <img src="assets/logo.svg" alt="That Other Agency logo" />
-        <span>That Other Agency</span>
-      </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav">
-        <a href="services.html">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="blog/index.html">Blog</a>
-        <a class="current" href="contact.html">Contact</a>
-      </nav>
-      <a class="btn btn-ghost header-cta" href="contact.html">Book a Strategy Call</a>
+      <div class="container">
+        <a class="brand" href="index.html" aria-label="That Other Agency home">
+          <img src="assets/logo.svg" alt="That Other Agency logo" />
+          <span>That Other Agency</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav">
+          <a href="services.html">Services</a>
+          <a href="work.html">Work</a>
+          <a href="about.html">About</a>
+          <a href="blog/index.html">Blog</a>
+          <a class="current" href="contact.html">Contact</a>
+        </nav>
+        <a class="btn btn-ghost header-cta" href="contact.html">Book a strategy call</a>
+      </div>
     </header>
 
     <main>
       <section class="page-hero reveal">
         <p class="eyebrow">Contact</p>
         <h1>
-          Tell us your growth target and current
-          <span class="ink-underline ink-mark" data-scribble="underline" style="--scribble-delay: 0.28s"
-            >blocker</span
-          >
+          Tell us your growth target and
+          <span class="ink-mark" data-scribble="underline" style="--scribble-delay: 0.28s">current blocker</span>
         </h1>
         <p class="lead">
-          Share the essentials below and we will respond with practical next
-          steps. The form opens your email client so you keep full control.
+          Complete the form and we will respond within one business day with practical next steps. If preferred, email us
+          directly and we can continue there.
         </p>
       </section>
 
@@ -58,14 +53,25 @@
           <article class="card" data-tilt>
             <h3>Direct contact</h3>
             <p>
-              Email: <a class="highlight" href="mailto:hello@thatotheragency.co.uk">hello@thatotheragency.co.uk</a>
+              Email:
+              <a href="mailto:hello@thatotheragency.co.uk" class="read-link" style="margin-top: 0">hello@thatotheragency.co.uk</a>
             </p>
             <p>Location: London, United Kingdom</p>
             <p>Typical response: within one business day</p>
+
+            <h3 style="margin-top: 1rem">Before you submit</h3>
+            <ul>
+              <li>Share your top priority for the next 90 days</li>
+              <li>Include approximate monthly media spend (if applicable)</li>
+              <li>Explain what is currently blocking progress</li>
+            </ul>
           </article>
 
           <article class="card">
-            <form class="contact-form" data-contact-form>
+            <form class="contact-form" data-contact-form action="https://formsubmit.co/ajax/hello@thatotheragency.co.uk" method="POST">
+              <input type="hidden" name="_subject" value="New website enquiry - That Other Agency" />
+              <input type="hidden" name="_captcha" value="false" />
+
               <div class="form-row">
                 <label>
                   Name
@@ -76,29 +82,47 @@
                   <input name="email" type="email" required />
                 </label>
               </div>
+
               <div class="form-row">
                 <label>
                   Company
-                  <input name="company" />
+                  <input name="company" required />
                 </label>
                 <label>
-                  Budget range
-                  <select name="budget">
-                    <option value="Not specified">Not specified</option>
-                    <option value="Under GBP 5k/month">Under GBP 5k/month</option>
-                    <option value="GBP 5k to GBP 15k/month">GBP 5k to GBP 15k/month</option>
-                    <option value="GBP 15k+/month">GBP 15k+/month</option>
+                  Monthly media spend
+                  <select name="media_spend" required>
+                    <option value="Under £5k">Under £5k</option>
+                    <option value="£5k-£15k">£5k-£15k</option>
+                    <option value="£15k-£40k">£15k-£40k</option>
+                    <option value="£40k+">£40k+</option>
+                    <option value="No paid media yet">No paid media yet</option>
                   </select>
                 </label>
               </div>
+
               <label>
-                Project goals
-                <textarea name="message" required placeholder="What are you trying to improve over the next 90 days?"></textarea>
+                Primary challenge
+                <select name="challenge" required>
+                  <option value="Lead quality">Lead quality</option>
+                  <option value="Paid media performance">Paid media performance</option>
+                  <option value="Conversion rate">Conversion rate</option>
+                  <option value="Positioning and offer clarity">Positioning and offer clarity</option>
+                  <option value="Tracking and reporting">Tracking and reporting</option>
+                </select>
               </label>
-              <small>
-                This will open your mail client with your details prefilled.
-              </small>
-              <button class="btn btn-primary" data-magnetic type="submit">Prepare Email Enquiry</button>
+
+              <label>
+                Project details
+                <textarea
+                  name="message"
+                  required
+                  placeholder="What are you trying to improve in the next 90 days, and what is stopping progress right now?"
+                ></textarea>
+              </label>
+
+              <p class="form-note">By submitting, you agree to be contacted about your enquiry.</p>
+              <p class="form-status" data-form-status>Ready to send.</p>
+              <button class="btn btn-primary" data-magnetic type="submit">Send enquiry</button>
             </form>
           </article>
         </div>
@@ -107,6 +131,11 @@
 
     <footer>
       <p>© <span id="year"></span> That Other Agency. All rights reserved.</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="blog/index.html">Blog</a>
+      </nav>
     </footer>
 
     <script src="script.js"></script>

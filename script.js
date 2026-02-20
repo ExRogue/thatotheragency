@@ -2,82 +2,60 @@
   const root = document.documentElement;
   root.classList.add("js");
 
-  const scribbles = [...document.querySelectorAll("[data-scribble]")];
-  scribbles.forEach((target) => {
-    if (target.querySelector("svg")) return;
-
-    const type = target.getAttribute("data-scribble");
-    const svgNS = "http://www.w3.org/2000/svg";
-    const svg = document.createElementNS(svgNS, "svg");
-    const path = document.createElementNS(svgNS, "path");
-    svg.classList.add("ink-svg");
-    path.classList.add("ink-path");
-
-    if (type === "underline") {
-      svg.setAttribute("viewBox", "0 0 120 24");
-      path.setAttribute("d", "M4 16 C22 13, 42 14, 60 15 C78 16, 97 14, 116 13");
-    } else {
-      svg.setAttribute("viewBox", "0 0 140 58");
-      path.setAttribute(
-        "d",
-        "M10 30 C12 12, 48 4, 90 6 C120 7, 134 16, 132 30 C130 46, 100 54, 60 53 C30 52, 10 43, 10 30 Z",
-      );
-    }
-
-    svg.appendChild(path);
-    target.appendChild(svg);
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = String(length);
-    path.style.strokeDashoffset = String(length);
-  });
-
-  requestAnimationFrame(() => {
-    root.classList.add("page-ready");
-  });
-
-  document.querySelectorAll("#year,[data-year]").forEach((el) => {
-    el.textContent = new Date().getFullYear();
-  });
-
-  const progress = document.createElement("div");
-  progress.className = "progress-bar";
-  document.body.appendChild(progress);
-
-  const updateProgress = () => {
-    const scrollTop = window.scrollY;
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const width = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
-    progress.style.width = `${Math.min(100, Math.max(0, width))}%`;
+  const setYear = () => {
+    document.querySelectorAll("#year,[data-year]").forEach((el) => {
+      el.textContent = String(new Date().getFullYear());
+    });
   };
 
-  updateProgress();
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  const initProgressBar = () => {
+    const bar = document.createElement("div");
+    bar.className = "progress-bar";
+    document.body.appendChild(bar);
 
-  const revealTargets = [...document.querySelectorAll(".reveal")];
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+  };
+
+  const initReveal = () => {
+    const targets = [...document.querySelectorAll(".reveal")];
+    if (!targets.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, io) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.14, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0.16, rootMargin: "0px 0px -10% 0px" },
     );
-    revealTargets.forEach((target) => revealObserver.observe(target));
-  } else {
-    revealTargets.forEach((target) => target.classList.add("is-visible"));
-  }
 
-  const nav = document.querySelector(".site-nav");
-  const toggle = document.querySelector(".menu-toggle");
-  if (nav && toggle) {
+    targets.forEach((el) => observer.observe(el));
+  };
+
+  const initMenu = () => {
+    const nav = document.querySelector(".site-nav");
+    const toggle = document.querySelector(".menu-toggle");
+    if (!nav || !toggle) return;
+
     toggle.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
     });
 
     nav.querySelectorAll("a").forEach((link) => {
@@ -88,14 +66,82 @@
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 1060) {
+      if (window.innerWidth > 900) {
         nav.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       }
     });
-  }
+  };
 
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  const initInk = () => {
+    const marks = [...document.querySelectorAll("[data-scribble]")];
+    if (!marks.length) return;
+
+    const svgNS = "http://www.w3.org/2000/svg";
+
+    marks.forEach((el) => {
+      if (el.querySelector("svg")) return;
+
+      const type = el.getAttribute("data-scribble");
+      const padX = type === "circle" ? 12 : 8;
+      const padY = type === "circle" ? 10 : 5;
+      const width = Math.max(48, Math.ceil(el.offsetWidth + padX * 2));
+      const height = Math.max(24, Math.ceil(el.offsetHeight + padY * 2));
+
+      const svg = document.createElementNS(svgNS, "svg");
+      const path = document.createElementNS(svgNS, "path");
+
+      svg.classList.add("ink-svg");
+      path.classList.add("ink-path", "draw");
+
+      svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      svg.setAttribute("width", String(width));
+      svg.setAttribute("height", String(height));
+
+      if (type === "underline") {
+        svg.style.left = `${-padX}px`;
+        svg.style.bottom = "0.02em";
+
+        const y = Math.max(8, height - 6);
+        const c1 = Math.round(width * 0.2);
+        const c2 = Math.round(width * 0.42);
+        const c3 = Math.round(width * 0.64);
+        const c4 = Math.round(width * 0.82);
+
+        path.setAttribute(
+          "d",
+          `M 3 ${y - 2} C ${c1} ${y - 7}, ${c2} ${y + 4}, ${Math.round(width * 0.52)} ${y - 1} C ${c3} ${y - 5}, ${c4} ${y + 2}, ${width - 4} ${y - 3}`,
+        );
+      } else {
+        svg.style.left = `${-padX}px`;
+        svg.style.top = `${-padY * 0.35}px`;
+
+        const rx = Math.max(16, (width - 8) / 2);
+        const ry = Math.max(10, (height - 8) / 2);
+        const cx = width / 2;
+        const cy = height / 2 + 1;
+
+        path.setAttribute(
+          "d",
+          `M ${cx - rx} ${cy} C ${cx - rx} ${cy - ry * 0.95}, ${cx - rx * 0.2} ${cy - ry}, ${cx} ${cy - ry} C ${cx + rx * 0.55} ${cy - ry}, ${cx + rx} ${cy - ry * 0.25}, ${cx + rx} ${cy} C ${cx + rx} ${cy + ry * 0.86}, ${cx + rx * 0.32} ${cy + ry}, ${cx} ${cy + ry} C ${cx - rx * 0.68} ${cy + ry}, ${cx - rx} ${cy + ry * 0.44}, ${cx - rx} ${cy}`,
+        );
+      }
+
+      svg.appendChild(path);
+      el.appendChild(svg);
+
+      const len = path.getTotalLength();
+      path.style.strokeDasharray = String(len);
+      path.style.strokeDashoffset = String(len);
+      path.style.setProperty("--dash-len", String(len));
+    });
+
+    requestAnimationFrame(() => root.classList.add("page-ready"));
+  };
+
+  const initTilt = () => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
     document.querySelectorAll("[data-tilt]").forEach((card) => {
       let raf = null;
 
@@ -105,13 +151,14 @@
 
       card.addEventListener("pointermove", (event) => {
         if (raf) cancelAnimationFrame(raf);
+
         raf = requestAnimationFrame(() => {
           const rect = card.getBoundingClientRect();
           const px = (event.clientX - rect.left) / rect.width;
           const py = (event.clientY - rect.top) / rect.height;
-          const rx = (0.5 - py) * 5.5;
-          const ry = (px - 0.5) * 6.5;
-          card.style.transform = `translate3d(0,-2px,0) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+          const rotateX = (0.5 - py) * 4.8;
+          const rotateY = (px - 0.5) * 5.6;
+          card.style.transform = `translate3d(0,-2px,0) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
         });
       });
 
@@ -119,118 +166,164 @@
       card.addEventListener("pointerup", reset);
     });
 
-    document.querySelectorAll("[data-magnetic]").forEach((button) => {
-      button.addEventListener("pointermove", (event) => {
-        const rect = button.getBoundingClientRect();
+    document.querySelectorAll("[data-magnetic]").forEach((btn) => {
+      btn.addEventListener("pointermove", (event) => {
+        const rect = btn.getBoundingClientRect();
         const x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
         const y = ((event.clientY - rect.top) / rect.height - 0.5) * 6;
-        button.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+        btn.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
       });
 
-      button.addEventListener("pointerleave", () => {
-        button.style.transform = "translate(0,0)";
+      btn.addEventListener("pointerleave", () => {
+        btn.style.transform = "translate(0,0)";
       });
     });
-  }
-
-  const countElements = [...document.querySelectorAll("[data-count]")];
-  const runCount = (el) => {
-    const target = Number(el.dataset.count || "0");
-    const duration = 900;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const progressPct = Math.min(1, (now - start) / duration);
-      const eased = 1 - Math.pow(1 - progressPct, 3);
-      el.textContent = Math.round(target * eased).toString();
-      if (progressPct < 1) requestAnimationFrame(tick);
-    };
-
-    requestAnimationFrame(tick);
   };
 
-  if (countElements.length) {
-    const countObserver = new IntersectionObserver(
-      (entries, observer) => {
+  const initCounters = () => {
+    const items = [...document.querySelectorAll("[data-count]")];
+    if (!items.length || !("IntersectionObserver" in window)) return;
+
+    const run = (el) => {
+      const target = Number(el.dataset.count || "0");
+      const start = performance.now();
+      const duration = 950;
+
+      const tick = (now) => {
+        const pct = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - pct, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (pct < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, io) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            runCount(entry.target);
-            observer.unobserve(entry.target);
+            run(entry.target);
+            io.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.4 },
     );
 
-    countElements.forEach((el) => countObserver.observe(el));
-  }
+    items.forEach((el) => observer.observe(el));
+  };
 
-  const searchInput = document.querySelector("[data-blog-search]");
-  const blogCards = [...document.querySelectorAll("[data-blog-card]")];
-  const emptyState = document.querySelector("[data-blog-empty]");
+  const initBlogSearch = () => {
+    const input = document.querySelector("[data-blog-search]");
+    const cards = [...document.querySelectorAll("[data-blog-card]")];
+    const empty = document.querySelector("[data-blog-empty]");
+    if (!input || !cards.length) return;
 
-  if (searchInput && blogCards.length) {
-    const filterCards = () => {
-      const query = searchInput.value.trim().toLowerCase();
+    const filter = () => {
+      const query = input.value.trim().toLowerCase();
       let visible = 0;
 
-      blogCards.forEach((card) => {
-        const haystack = (card.dataset.search || "").toLowerCase();
-        const show = haystack.includes(query);
+      cards.forEach((card) => {
+        const text = (card.dataset.search || "").toLowerCase();
+        const show = text.includes(query);
         card.style.display = show ? "block" : "none";
         if (show) visible += 1;
       });
 
-      if (emptyState) {
-        emptyState.hidden = visible > 0;
-      }
+      if (empty) empty.hidden = visible > 0;
     };
 
-    searchInput.addEventListener("input", filterCards);
-    filterCards();
-  }
-
-  const contactForm = document.querySelector("[data-contact-form]");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(contactForm);
-      const name = String(formData.get("name") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const company = String(formData.get("company") || "").trim();
-      const budget = String(formData.get("budget") || "").trim();
-      const message = String(formData.get("message") || "").trim();
-
-      const subject = encodeURIComponent(`Website enquiry from ${name || "new lead"}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nBudget: ${budget}\n\nProject goals:\n${message}`,
-      );
-
-      window.location.href = `mailto:hello@thatotheragency.co.uk?subject=${subject}&body=${body}`;
-    });
-  }
-
-  const toTop = document.createElement("button");
-  toTop.className = "to-top";
-  toTop.type = "button";
-  toTop.setAttribute("aria-label", "Back to top");
-  toTop.textContent = "Top";
-  document.body.appendChild(toTop);
-
-  const toggleTop = () => {
-    toTop.classList.toggle("show", window.scrollY > 520);
+    input.addEventListener("input", filter);
+    filter();
   };
 
-  toggleTop();
-  window.addEventListener("scroll", toggleTop, { passive: true });
+  const initContactForm = () => {
+    const form = document.querySelector("[data-contact-form]");
+    if (!form) return;
 
-  toTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    const status = form.querySelector("[data-form-status]");
 
-  window.addEventListener("pointermove", (event) => {
-    root.style.setProperty("--mouse-x", `${event.clientX}px`);
-    root.style.setProperty("--mouse-y", `${event.clientY}px`);
-  });
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const action = form.getAttribute("action");
+      if (!action) {
+        if (status) {
+          status.className = "form-status err";
+          status.textContent = "Form endpoint missing. Please add your Formsubmit endpoint.";
+        }
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      if (status) {
+        status.className = "form-status";
+        status.textContent = "Sending your message...";
+      }
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) throw new Error("Send failed");
+
+        form.reset();
+        if (status) {
+          status.className = "form-status ok";
+          status.textContent = "Thanks, your message has been sent. We will get back within one business day.";
+        }
+      } catch (error) {
+        if (status) {
+          status.className = "form-status err";
+          status.textContent = "Submission failed. Please email hello@thatotheragency.co.uk directly.";
+        }
+      }
+    });
+  };
+
+  const initToTop = () => {
+    const button = document.createElement("button");
+    button.className = "to-top";
+    button.type = "button";
+    button.textContent = "Top";
+    button.setAttribute("aria-label", "Back to top");
+    document.body.appendChild(button);
+
+    const update = () => {
+      button.classList.toggle("show", window.scrollY > 540);
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+
+    button.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  };
+
+  const initSpotlight = () => {
+    window.addEventListener("pointermove", (event) => {
+      root.style.setProperty("--mouse-x", `${event.clientX}px`);
+      root.style.setProperty("--mouse-y", `${event.clientY}px`);
+    });
+  };
+
+  setYear();
+  initProgressBar();
+  initReveal();
+  initMenu();
+  initInk();
+  initTilt();
+  initCounters();
+  initBlogSearch();
+  initContactForm();
+  initToTop();
+  initSpotlight();
 })();
