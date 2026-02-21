@@ -437,10 +437,11 @@ li {
   letter-spacing: 0.08em;
   font-size: 0.75rem;
   font-weight: 700;
+  margin: 0 0 0.6rem;
 }
 
 .case-meta {
-  margin: 0;
+  margin: 0 0 0.6rem;
   color: #c9dcff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
