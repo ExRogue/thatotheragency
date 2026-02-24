@@ -339,7 +339,7 @@
       } catch (error) {
         if (status) {
           status.className = "form-status err";
-          status.textContent = "Submission failed. Please email hello@thatotheragency.co.uk directly.";
+          status.textContent = "Submission failed. Please email hello.that.other.agency@gmail.com directly.";
         }
       }
     });
