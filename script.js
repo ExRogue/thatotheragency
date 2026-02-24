@@ -217,6 +217,60 @@
     items.forEach((el) => observer.observe(el));
   };
 
+  const initLogoCarousel = () => {
+    const tracks = [...document.querySelectorAll("[data-logo-carousel-track]")];
+    if (!tracks.length) return;
+
+    const buildTrack = (track) => {
+      track.querySelectorAll("[data-logo-clone]").forEach((el) => el.remove());
+
+      const originals = [...track.children];
+      if (originals.length < 2) return;
+
+      originals.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.dataset.logoClone = "true";
+        clone.setAttribute("aria-hidden", "true");
+        const img = clone.querySelector("img");
+        if (img) img.alt = "";
+        track.appendChild(clone);
+      });
+
+      const style = getComputedStyle(track);
+      const gap = Number.parseFloat(style.gap || style.columnGap || "0") || 0;
+      const originalsWidth = originals.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+      const loopDistance = originalsWidth + gap * Math.max(0, originals.length - 1);
+      const pxPerSecond = 42;
+      const duration = Math.max(16, Math.round(loopDistance / pxPerSecond));
+
+      track.style.setProperty("--logo-loop-distance", `${loopDistance}px`);
+      track.style.setProperty("--logo-duration", `${duration}s`);
+    };
+
+    const refresh = () => {
+      tracks.forEach((track) => buildTrack(track));
+    };
+
+    const imagePromises = tracks
+      .flatMap((track) => [...track.querySelectorAll("img")])
+      .map((img) => {
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {
+          img.addEventListener("load", resolve, { once: true });
+          img.addEventListener("error", resolve, { once: true });
+        });
+      });
+
+    Promise.all(imagePromises).then(refresh);
+    refresh();
+
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(refresh, 140);
+    });
+  };
+
   const initBlogSearch = () => {
     const input = document.querySelector("[data-blog-search]");
     const cards = [...document.querySelectorAll("[data-blog-card]")];
@@ -291,6 +345,59 @@
     });
   };
 
+  const initMediaParallax = () => {
+    const layers = [...document.querySelectorAll("[data-parallax-layer]")];
+    if (!layers.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      layers.forEach((layer) => {
+        layer.style.transform = "translate3d(0,0,0) scale(1.02)";
+      });
+      return;
+    }
+
+    let pointerX = 0.5;
+    let pointerY = 0.5;
+    let raf = null;
+
+    const render = () => {
+      raf = null;
+      const viewportCentre = window.scrollY + window.innerHeight * 0.5;
+
+      layers.forEach((layer) => {
+        const depth = Number(layer.dataset.depth || "1");
+        const rect = layer.getBoundingClientRect();
+        const layerCentre = rect.top + window.scrollY + rect.height * 0.5;
+        const fromViewportCentre = viewportCentre - layerCentre;
+
+        const scrollShift = Math.max(-58, Math.min(58, fromViewportCentre * 0.045 * depth));
+        const pointerShiftX = (pointerX - 0.5) * 20 * depth;
+        const pointerShiftY = (pointerY - 0.5) * 14 * depth;
+        const y = scrollShift + pointerShiftY;
+
+        layer.style.transform = `translate3d(${pointerShiftX.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(1.03)`;
+      });
+    };
+
+    const queue = () => {
+      if (!raf) raf = requestAnimationFrame(render);
+    };
+
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        pointerX = event.clientX / window.innerWidth;
+        pointerY = event.clientY / window.innerHeight;
+        queue();
+      },
+      { passive: true },
+    );
+
+    queue();
+  };
+
   const initToTop = () => {
     const button = document.createElement("button");
     button.className = "to-top";
@@ -325,6 +432,7 @@
   initInk();
   initTilt();
   initCounters();
+  initLogoCarousel();
   initBlogSearch();
   initContactForm();
   initToTop();
