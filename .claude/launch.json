@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "3000", "--directory", "/Users/steven/Desktop/That Other Agency /That Other Agency Website"],
+      "port": 3000
+    }
+  ]
+}
